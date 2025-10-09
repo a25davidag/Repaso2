@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -16,21 +17,32 @@ public class Main {
         for(int i = 0; n > i; i++){
             System.out.println(i+1);
         }
+        //Ejercicio 3
         System.out.println("pon el año");
         int año = sp.nextInt();
         System.out.println("pone el mes");
         int mesnum = sp.nextInt();
-        String[] mes =  {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
-                        "Septiembre", "Octubre", "Noviembre", "Diciembre"};
         System.out.println("pon el dia");
         int dia = sp.nextInt();
-        pedirFecha(año,mes,dia,mesnum);*/
+        System.out.println(validarFecha(año, dia, mesnum));
 
+        //Ejercicio4
         System.out.println("pon un numero y veremos si es primo o no!");
         int numeroprimo = sp.nextInt();
-        numeroPrimo(numeroprimo);
+        if (validarPrimo(numeroprimo)) {
+            System.out.println("primo");
+        } else {
+            System.out.println("no es primo");
+        }*/
 
+        //Ejercicio5
+        Random sj = new Random();
+        System.out.println("pon un nuemro");
+        int n1 = sp.nextInt();
+        int ramdon1 = sj.nextInt(10) + 1;
+        adivinarNumero(n1, ramdon1);
     }
+
     public static boolean numeros1(int numero) {
         if ((numero % 2 == 0) && ((numero * 5) > 25)) {
             System.out.println(numero);
@@ -43,32 +55,52 @@ public class Main {
             return false;
         }
     }
-    public static void pedirFecha(int año, String[] mes, int dia, int num) {
-        if(año < 2025 && num >=1 && num <=12 ) {
-            if (num == 1 || num == 3 || num == 5 || num == 7 || num == 8 || num == 10 || num == 12 && dia <= 31){
-                System.out.println("La fecha seria " + dia + mes[num-1] + año);
-            } else if (num == 4 || num == 6 || num == 9 || num == 11 && dia <= 30) {
-                System.out.println("La fecha seria " + dia +  " " + mes[num-1] + " " + año);
-            } else if (num == 2 && dia <= 28) {
-                System.out.println("La fecha seria " + dia + " " + mes[num-1] + " " + año);
-            }else{
-                System.out.println("NO VALIDO: mes o dia incorrecto");
-            }
-        }else{
-            System.out.println("NO VALIDO: Año incorrecto");
-        }
 
+    public static boolean validarFecha(int año, int dia, int num) {
+        if (año < 2025 && num >= 1 && num <= 12) {
+
+            if ((num == 1 || num == 3 || num == 5 || num == 7 || num == 8 || num == 10 || num == 12) && dia <= 31) {
+                return true;
+            } else if ((num == 4 || num == 6 || num == 9 || num == 11) && dia <= 30) {
+                return true;
+            } else if (num == 2 && dia <= 28) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 
-
-    public static void numeroPrimo(int numero) {
-        int i = numero;
-        for (i = numero; i > 1; i--) {
-            if (numero % i == 1 || numero % (i -1) == 0) {
-                System.out.println(numero + "primo");
-            }else{
-                System.out.println(numero + "no primo");
+    public static boolean validarPrimo(int numero) {
+        for (int i = numero - 1; i >= 2; i--) {
+            if (numero % i == 0) {
+                return false;
             }
+        }
+        return true;
+    }
+
+    public static void adivinarNumero(int n1, int random1) {
+        Scanner sp = new Scanner(System.in);
+
+        if ((n1 % 2 != 0) && n1 > 50) {
+            System.out.println("multiplicaion del numero x ramdon =" + (n1 * random1));
+            System.out.println("intruduce ahora numeros ");
+            int n2 = sp.nextInt();
+            do {
+                if (n2 == random1) {
+                    System.out.println("numero acertado");
+                } else {
+                    System.out.println("numero no acertado");
+                }
+
+            } while (random1 == n2);
+
+        } else {
+            System.out.println("el numero no cumple y no es impar");
+
+
         }
     }
 }
