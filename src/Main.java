@@ -37,10 +37,11 @@ public class Main {
 
         //Ejercicio5
         Random sj = new Random();
-        System.out.println("pon un nuemro");
+        System.out.println("pon un numero");
         int n1 = sp.nextInt();
+        int intentos = 5;
         int ramdon1 = sj.nextInt(10) + 1;
-        adivinarNumero(n1, ramdon1);
+        adivinarNumero(n1, ramdon1,intentos);
     }
 
     public static boolean numeros1(int numero) {
@@ -81,26 +82,25 @@ public class Main {
         return true;
     }
 
-    public static void adivinarNumero(int n1, int random1) {
+    public static boolean adivinarNumero(int n1, int random1,int intentos) {
         Scanner sp = new Scanner(System.in);
-
-        if ((n1 % 2 != 0) && n1 > 50) {
-            System.out.println("multiplicaion del numero x ramdon =" + (n1 * random1));
-            System.out.println("intruduce ahora numeros ");
-            int n2 = sp.nextInt();
-            do {
+        if((n1 % 2 != 0) && n1 > 15){
+            System.out.println("numero multiplicado por el numero ramdon" + (n1*random1));
+            for (int i = 1; i <= intentos; i++) {
+                System.out.println("adivina el numero");
+                int n2 = sp.nextInt();
                 if (n2 == random1) {
                     System.out.println("numero acertado");
+                    i = intentos + 1;
+                } else if (n2 > random1) {
+                    System.out.println("El numero es mas pequeño");
                 } else {
-                    System.out.println("numero no acertado");
+                    System.out.println("El numero es mas grande");
                 }
-
-            } while (random1 == n2);
-
-        } else {
-            System.out.println("el numero no cumple y no es impar");
-
-
+            }
+        }else{
+            System.out.println("NO VALIDO");
+            }
+        System.out.println("Te has quedado sin intentos");
         }
     }
-}
