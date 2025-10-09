@@ -18,13 +18,12 @@ public class Main {
         }*/
         System.out.println("pon el año");
         int año = sp.nextInt();
-        System.out.println("pone le mes");
-        int[] mes = {1,2,3,4,5,6,7,8,9,10,11,12};
-        System.out.println("pon el mes");
+        System.out.println("pone el mes");
+        String[] mes = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto",
+                        "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        System.out.println("pon el dia");
         int dia = sp.nextInt();
-
-
-
+        pedirFecha(año,mes,dia);
 
     }
     public static boolean numeros1(int numero) {
@@ -38,5 +37,12 @@ public class Main {
             System.out.println("NO VALIDO");
             return false;
         }
+    }
+    public static void pedirFecha(int año, String[] mes, int dia) {
+        if(año < 2025 ){
+            System.out.println("fecha valida");
+
+        }
+
     }
 }
