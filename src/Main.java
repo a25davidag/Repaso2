@@ -61,9 +61,13 @@ public class Main {
     }
 
 
-    public static boolean numeroPrimo(int numero) {
-        if((numero % 1) == numero && numer{
-            System.out.println("numero primo");
+    public static void numeroPrimo(int numero) {
+        for (int i = 1; i < numero; i++) {
+            if (numero % i == 1 && numero % (i + 2) == 0) {
+                System.out.println(numero + "primo");
+            }else{
+                System.out.println(numero + "no primo");
+            }
         }
     }
 }
