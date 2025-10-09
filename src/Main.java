@@ -62,8 +62,9 @@ public class Main {
 
 
     public static void numeroPrimo(int numero) {
-        for (int i = 1; i < numero; i++) {
-            if (numero % i == 1 && numero % (i + 2) == 0) {
+        int i = numero;
+        for (i = numero; i > 1; i--) {
+            if (numero % i == 1 || numero % (i -1) == 0) {
                 System.out.println(numero + "primo");
             }else{
                 System.out.println(numero + "no primo");
