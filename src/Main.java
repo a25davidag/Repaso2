@@ -5,6 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner sp = new Scanner(System.in);
         //ejercicio1
+        //Pedir números indefinidamente. A medida que se piden números solo queremos
+        //mostrar los que cumplan al menos uno de los siguientes requisitos:
+
         /*while (true) {
             System.out.println("Pon un numero");
             int numero = sp.nextInt();
@@ -12,12 +15,17 @@ public class Main {
         }
 
         //Ejercicio2
+        //Pedir números indefinidamente. A medida que se piden números solo queremos
+        //mostrar los que cumplan al menos uno de los siguientes requisitos:
+
         System.out.println("pon un nuemro");
         int n = sp.nextInt();
         for(int i = 0; n > i; i++){
             System.out.println(i+1);
         }
         //Ejercicio 3
+        //Pedir el día, mes y año de una fecha e indicar si la fecha es correcta. Con meses de
+        //28, 30 y 31 días.
         System.out.println("pon el año");
         int año = sp.nextInt();
         System.out.println("pone el mes");
@@ -27,6 +35,8 @@ public class Main {
         System.out.println(validarFecha(año, dia, mesnum));
 
         //Ejercicio4
+        //Pedir solo un número. Determinar si es un número es primo o no.
+
         System.out.println("pon un numero y veremos si es primo o no!");
         int numeroprimo = sp.nextInt();
         if (validarPrimo(numeroprimo)) {
@@ -36,6 +46,15 @@ public class Main {
         }*/
 
         //Ejercicio5
+        //Se creará un número random del 56 al 108 e intentaremos adivinar cual es.
+        //El programa tendrá que pedirte dos números.
+        //    • El primero, cuando se pida por teclado se multiplicará por el número random.
+        //    Solo está permitido números impares mayores de 50.
+        //    • Se mostrará el resultado de la multiplicación
+        //    • El segundo número será tu intento para adivinar el número random
+        //Si has acertado, ganas el juego. Si no, sigues intentándolo de nuevo hasta un máximo
+        //de 3 intentos
+
         Random sj = new Random();
         System.out.println("pon un numero");
         int n1 = sp.nextInt();
@@ -85,7 +104,7 @@ public class Main {
     public static void adivinarNumero(int n1, int random1,int intentos) {
         Scanner sp = new Scanner(System.in);
         if((n1 % 2 != 0) && n1 > 50){
-            System.out.println("numero multiplicado por el numero ramdon" + (n1*random1));
+            System.out.println("numero multiplicado por el numero ramdon daria: " + (n1*random1));
             for (int i = 1; i <= intentos; i++) {
                 System.out.println("adivina el numero");
                 int n2 = sp.nextInt();
